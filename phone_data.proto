@@ -1,0 +1,37 @@
+syntax = "proto3";
+package wener.teleattr.v1;
+
+option go_package = "github.com/wenerme/teleattr/genproto/v1/phonedata;phonedata";
+option java_multiple_files = true;
+option java_outer_classname = "PhoneDataProto";
+option java_package = "com.github.wenerme.teleattr.v1.phonedata";
+option objc_class_prefix = "WAPI";
+
+message PhoneData {
+    string version = 1;
+    repeated Record records = 2;
+    repeated Index indexes = 3;
+}
+
+message Record {
+    string province = 1;
+    string city = 2;
+    string zip = 3;
+    string zone = 4;
+}
+
+message Index {
+    int32 prefix = 1;
+    int32 record_index = 2;
+    Vendor vendor = 3;
+}
+
+enum Vendor {
+    UNKNOWN = 0;
+    CMCC = 1; //中国移动
+    CUCC = 2; //中国联通
+    CTCC = 3; //中国电信
+    CTCC_V = 4; //电信虚拟运营商
+    CUCC_V = 5; //联通虚拟运营商
+    CMCC_V = 6; //移动虚拟运营商
+}
