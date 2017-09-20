@@ -9,6 +9,30 @@ Telephone Attribution
 * Pre-generated protodata, csv
     * [Releases](https://github.com/wenerme/telattr/releases)
 
+## Demo
+
+```go
+package main
+
+import (
+	"fmt"
+	"github.com/wenerme/telattr"
+	_ "github.com/wenerme/telattr/data_proto"
+)
+
+func main() {
+	rec, err := telattr.Find("18957509123")
+	if err != nil {
+		panic(err)
+	}
+	fmt.Printf("%#v\n", rec)
+}
+```
+
+```
+&telattr.Record{Version:"1707", Province:"浙江", City:"绍兴", Zip:"312000", Zone:"0575", VendorName:"中国电信"}
+```
+
 ## Dev
 ```bash
 # Generate proto data
