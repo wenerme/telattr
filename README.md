@@ -1,3 +1,6 @@
+[English](#telattr) | [中文](#电话归属地)
+--------|-----
+
 # telattr
 Telephone Attribution
 
@@ -14,6 +17,21 @@ Telephone Attribution
     * PB phone.pb 3.8M
     * PB optimized phone-opt.pb 1.9M
 * Useful command line tool
+
+# 电话归属地
+* 数据源 [xluohome/phonedata](https://github.com/xluohome/phonedata)
+* 转换为 protobuf 格式
+    * 可在网页中使用
+    * 不需要手动解析
+* 使用绑定数据, 不需要保留原始文件
+    * 使用优化有的 protobuf 数据
+* 预生成的 protobuf 数据和 csv
+    * [Releases](https://github.com/wenerme/telattr/releases)
+* 索引优化, 移除有相同记录索引的连续前缀
+    * 原始数据 phone.dat 3.2M
+    * Protobuf phone.pb 3.8M
+    * 优化后的 Protobuf phone-opt.pb 1.9M
+* 非常好用的命令行工具
 
 ## CLI
 ```bash
@@ -108,4 +126,6 @@ BenchmarkFindPhone-8    10000000               136 ns/op
 ```bash
 # Generate proto data
 go-bindata -pkg data_proto -o data_proto/bindata.go phone.pb
+# Generate pb
+protoc --go_out=plugins=grpc,import_path=telattr:$HOME/go/src/ *.proto
 ```
