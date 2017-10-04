@@ -33,6 +33,23 @@ func main() {
 &telattr.Record{Version:"1707", Province:"浙江", City:"绍兴", Zip:"312000", Zone:"0575", VendorName:"中国电信"}
 ```
 
+
+## Performance
+
+A little bit faster than [xluohome/phonedata](https://github.com/xluohome/phonedata)
+
+```
+goos: darwin
+goarch: amd64
+pkg: github.com/xluohome/phonedata
+BenchmarkFindPhone-8    10000000               181 ns/op
+
+goos: darwin
+goarch: amd64
+pkg: github.com/wenerme/telattr
+BenchmarkFindPhone-8    10000000               136 ns/op
+```
+
 ## Dev
 ```bash
 # Generate proto data
