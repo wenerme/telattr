@@ -1,3 +1,5 @@
+> Moved to https://github.com/wenerme/tools#teleattr
+
 [English](#telattr) | [中文](#电话归属地)
 --------|-----
 
